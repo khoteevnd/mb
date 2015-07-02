@@ -1,0 +1,12 @@
+{
+  "name": "khoteevnd/mb",
+  "description": "My first PHP Blog",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Khoteev Mykola",
+      "email": "khoteevnd@gmail.com"
+    }
+  ]
+}
