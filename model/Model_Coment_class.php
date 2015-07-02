@@ -170,7 +170,13 @@ class Coment {
     public function DellAllComentsByPost($post_id)
     {
         $params[]= intval($post_id);
-        $sql = "DELETE FROM coments WHERE post_id= ?";
+        $sql = "DELETE FROM coments WHERE post_id=?";
+        DatabaseHandler::Execute($sql, $params);
+    }
+    public function DellComentById($post_id)
+    {
+        $params[] = intval($post_id);
+        $sql = "DELETE FROM coments WHERE coment_id=?";
         DatabaseHandler::Execute($sql, $params);
     }
     public function AddComent($params)

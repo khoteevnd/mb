@@ -6,19 +6,8 @@
                     <a href="?action=view-post&id=<?=$row['post_id']?>"><?=$row['title']?></a>
                     <?php if(isset($_SESSION["loging"]) and $_SESSION["loging"] == "loging"):?>
                         <?php if($_SESSION["author_id"] == $row['author_id']):?>
-                            <div class="btn-group">
-                                <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i><?php echo $_SESSION['login'];?></a>
-                                <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
-                                    <li><a href="#"><i class="icon-trash"></i> Delete</a></li>
-                                    <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#"><i class="i"></i> Make admin</a></li>
-                                </ul>
-                            </div>
-                            <a href="?action=edit-post&id=<?=$row['post_id']?>">edit<i class="icon-edit"></i></a>
-                            <a href="?action=dell-post&id=<?=$row['post_id']?>">dell<i class="icon-trash"></i></a>
+                            <a href="?action=edit-post&id=<?=$row['post_id']?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                            <a href="?action=dell-post&id=<?=$row['post_id']?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                         <?php endif?>
                     <?php endif?>
                 </h3>
@@ -35,9 +24,9 @@
                         <a href="?action=view-author-posts&id=<?=$row['author_id']?>"><?=$row['name']?></a>
                     </i>
                 </div>
-                <div class="coments">
+                <div class="count-coments">
                     <i>
-                        <a href="?action=view-coments"><?=$row['coments']?> coment(s)</a>
+                        <a href="?action=view-coments"><span class="badge"><?=$row['coments']?></span> comment(s)</a>
                     </i>
                 </div>
             </div>
