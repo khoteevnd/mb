@@ -7,9 +7,15 @@
  */
 
 abstract class BaseCRUD{
+
+    private $DBH;
+
+    /**
+     *
+     */
     public function __construct()
     {
-
+        $this->DBH =  DatabaseHandler::GetHandler();
     }
     public function __set($name)
     {

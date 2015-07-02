@@ -1,12 +1,16 @@
 {
   "name": "khoteevnd/mb",
-  "description": "My first PHP Blog",
+  "description": "My first PHP Blog, Blog, PHP",
   "minimum-stability": "stable",
+  "homepage":"https://github.com/khoteevnd/mb.git",
   "license": "proprietary",
   "authors": [
     {
       "name": "Khoteev Mykola",
       "email": "khoteevnd@gmail.com"
     }
-  ]
+  ],
+  "require":{
+    "php":">=5.3.1"}
+
 }
