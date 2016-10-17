@@ -1,4 +1,4 @@
-<?php include("include.php"); ?>
+<?php include 'include.php'; ?>
 <!DOCTYPE html>
 <html lang="ru" xml:lang="ru">
 <head>

@@ -1,7 +1,8 @@
 <?php
+
 class Request
 {
-    private static $sef_data = array();
+    private static $sef_data = [];
     private $data;
 
     public function __construct()
@@ -16,18 +17,22 @@ class Request
 
     public function __get($name)
     {
-        if (isset($this->data[$name])) return $this->data[$name];
+        if (isset($this->data[$name])) {
+            return $this->data[$name];
+        }
     }
 
     private function xss($data)
     {
         if (is_array($data)) {
-            $escaped = array();
+            $escaped = [];
             foreach ($data as $key => $value) {
                 $escaped[$key] = $this->xss($value);
             }
+
             return $escaped;
         }
+
         return trim(htmlspecialchars($data));
     }
 
@@ -36,6 +41,7 @@ class Request
         if (isset($_POST) and !empty($_POST)) {
             return true;
         }
+
         return false;
     }
 
@@ -44,6 +50,7 @@ class Request
         if (isset($_GET) and !empty($_GET)) {
             return true;
         }
+
         return false;
     }
 
@@ -52,6 +59,7 @@ class Request
         if ($this->isGet() and $this->isPost()) {
             return true;
         }
+
         return false;
     }
 
@@ -59,12 +67,12 @@ class Request
     {
         if ($this->isGetAndPost()) {
             $arr = array_merge($this->xss($_GET), $this->xss($_POST));
+
             return $arr;
         } elseif ($this->isGet()) {
             return $this->xss($_GET);
         } elseif ($this->isPost()) {
             return $this->xss($_POST);
         }
-        return null;
     }
 }

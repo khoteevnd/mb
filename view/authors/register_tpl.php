@@ -10,4 +10,4 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Зарегестрироваться</button>
     </div>
 </form>
-<a href="<?php echo "?action=login"?>">Войти</a>
+<a href="<?php echo '?action=login'?>">Войти</a>

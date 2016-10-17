@@ -1,41 +1,41 @@
 <?php
-class Session// implements ISession
-{
 
+class Session // implements ISession
+{
     private static $Inst;
 
-    /**
-     *
-     */
+
     private function __construct()
     {
-        $this->setNameSession("myblog");
+        $this->setNameSession('myblog');
         if (!isset($_SESSION)) {
             session_start();
         }
     }
 
-    private function __clone(){}
-    private function __wakeup(){}
+    private function __clone()
+    {
+    }
+
+    private function __wakeup()
+    {
+    }
 
     public function isLoging()
     {
-        if(!($this->get("loging")) and ($this->get("loging") != "loging"))
-        {
+        if (!($this->get('loging')) and ($this->get('loging') != 'loging')) {
             return false;
-        }
-        else
-        {
+        } else {
             return true;
         }
     }
 
     public static function getInstace()
     {
-        if(!isset(self::$Inst))
-        {
-            self::$Inst = new Session();
+        if (!isset(self::$Inst)) {
+            self::$Inst = new self();
         }
+
         return self::$Inst;
     }
 
@@ -46,19 +46,19 @@ class Session// implements ISession
 
     public function get($key)
     {
-        if(isset($_SESSION[$key]))
-        {
+        if (isset($_SESSION[$key])) {
             return $_SESSION[$key];
         }
+
         return false;
     }
 
-    public  function getAllParams()
+    public function getAllParams()
     {
-        if(isset($_SESSION) and !empty($_SESSION))
-        {
+        if (isset($_SESSION) and !empty($_SESSION)) {
             return $_SESSION;
         }
+
         return false;
     }
 
@@ -70,10 +70,10 @@ class Session// implements ISession
 
     public function check($key)
     {
-        if(!empty($_SESSION) and isset($_SESSION[$key]))
-        {
+        if (!empty($_SESSION) and isset($_SESSION[$key])) {
             return true;
         }
+
         return false;
     }
 
@@ -91,6 +91,7 @@ class Session// implements ISession
     {
         return SID;
     }
+
     public function getNameSession()
     {
         return session_name();

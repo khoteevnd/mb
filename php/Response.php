@@ -10,6 +10,7 @@ class Response
         }
         include $path;
         $html = ob_get_clean();
+
         return $html;
     }
 }

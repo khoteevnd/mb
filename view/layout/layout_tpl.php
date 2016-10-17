@@ -1,13 +1,13 @@
-<?php include("include.php"); ?>
+<?php include 'include.php'; ?>
 <!DOCTYPE html>
 <html lang="ru" xml:lang="ru">
 
 <head>
-    <?=$records["header"];?>
+    <?=$records['header']; ?>
 </head>
 <body>
-    <?=$records["menu"];?>
-    <?=$records["content"];?>
-    <?=$records["footer"];?>
+    <?=$records['menu']; ?>
+    <?=$records['content']; ?>
+    <?=$records['footer']; ?>
 </body>
 </html>

@@ -1,6 +1,8 @@
 <?php
 
-class DatabaseException extends Exception {}
+class DatabaseException extends Exception
+{
+}
 
 class Database extends PDO
 {
@@ -11,6 +13,7 @@ class Database extends PDO
     private $user;
     private $pass;
     private $dns;
+
     /**
      * @return string
      */
@@ -18,6 +21,7 @@ class Database extends PDO
     {
         return $this->database;
     }
+
     /**
      * @return string
      */
@@ -42,14 +46,14 @@ class Database extends PDO
         return $this->user;
     }
 
-    function __construct()
+    public function __construct()
     {
         $this->engine = 'mysql';
         $this->host = 'localhost';
         $this->database = 'myblog';
         $this->user = 'root';
         $this->pass = '';
-        $this->dns = $this->engine.':dbname='.$this->database.";host=".$this->host;
-        parent::__construct($this->getDns(),$this->getUser(),$this->getPass());
+        $this->dns = $this->engine.':dbname='.$this->database.';host='.$this->host;
+        parent::__construct($this->getDns(), $this->getUser(), $this->getPass());
     }
 }
