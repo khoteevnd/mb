@@ -1,9 +1,10 @@
 <?php
-mb_internal_encoding("UTF-8");
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
 
-include_once("include.php");
+mb_internal_encoding('UTF-8');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+include_once 'include.php';
 $session = Session::getInstace();
 
 $request = new Request();
@@ -13,8 +14,7 @@ $params = $request->getParams();
 
 $action = isset($params['action']) ? $params['action'] : 'index';
 
-switch($action)
-{
+switch ($action) {
 //START POSTS////////////////////////////////////////////////////////////////////////////////////////////////
     case 'index':
         $controller = new Controller_Post($params);

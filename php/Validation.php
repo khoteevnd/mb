@@ -1,4 +1,5 @@
 <?php
+
 class Validation
 {
     private $errors;
@@ -8,7 +9,7 @@ class Validation
     private $minlen;
     private $field_name;
 
-    function __construct(&$data)
+    public function __construct(&$data)
     {
         $this->data = $data;
         $this->errors = [];
@@ -37,11 +38,11 @@ class Validation
 //    }
     public function required()
     {
-        if(empty($this->data))
-        {
+        if (empty($this->data)) {
             $this->result = false;
-	        $this->errors[] = 'ErrorCode0';
+            $this->errors[] = 'ErrorCode0';
         }
+
         return true;
     }
 
@@ -49,11 +50,11 @@ class Validation
     {
         $this->minlen = $minlen;
         $this->field_name = $field_name;
-        if(strlen($this->data[$this->field_name])< $this->minlen)
-        {
+        if (strlen($this->data[$this->field_name]) < $this->minlen) {
             $this->result = false;
             $this->errors[] = 'ErrorCode1';
         }
+
         return true;
     }
 
@@ -64,27 +65,21 @@ class Validation
         $arr_str = str_split($this->data[$field_name]);
         $arr_return = [];
 
-        foreach($arr_str as $str_char)
-        {
-            foreach($arr_spec_char as $spec)
-            {
-                if($str_char == $spec)
-                {
-                    $arr_return[]= $str_char;
+        foreach ($arr_str as $str_char) {
+            foreach ($arr_spec_char as $spec) {
+                if ($str_char == $spec) {
+                    $arr_return[] = $str_char;
                 }
             }
         }
-        if(($str=implode('',$arr_return)) != "")
-        {
+        if (($str = implode('', $arr_return)) != '') {
             $this->result = false;
             $this->errors[] = 'ErrorCode2';
-        }
-        else
-        {
+        } else {
             return 0;
         }
-
     }
+
     /**
      * @return array
      */
@@ -92,6 +87,7 @@ class Validation
     {
         return $this->result;
     }
+
     /**
      * @return array
      */

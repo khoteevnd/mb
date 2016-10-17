@@ -1,12 +1,13 @@
 <?php
+
 class View
 {
-    protected  $records;
-    protected  $path;
-    protected  $fileName;
-    protected  $render;
+    protected $records;
+    protected $path;
+    protected $fileName;
+    protected $render;
 
-    public function __construct($records = null, $path = "", $fileName = "", $render = false)
+    public function __construct($records = null, $path = '', $fileName = '', $render = false)
     {
         $this->records = $records;
         $this->path = $path;
@@ -19,15 +20,14 @@ class View
         $records = $this->records;
         $template = $this->path.$this->fileName;
         ob_start();
-        if($records != null){
+        if ($records != null) {
             extract($records);
         }
-        include($template);
-        if(!$this->render){
+        include $template;
+        if (!$this->render) {
             return ob_get_clean();
-        }
-        else{
+        } else {
             echo ob_get_clean();
         }
     }
-} 
+}

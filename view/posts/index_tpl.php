@@ -1,11 +1,11 @@
 <div class="posts">
-    <?php foreach($records as $row):?>
+    <?php foreach ($records as $row):?>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3>
                     <a href="?action=view-post&id=<?=$row['post_id']?>"><?=$row['title']?></a>
-                    <?php if(isset($_SESSION["loging"]) and $_SESSION["loging"] == "loging"):?>
-                        <?php if($_SESSION["author_id"] == $row['author_id']):?>
+                    <?php if (isset($_SESSION['loging']) and $_SESSION['loging'] == 'loging'):?>
+                        <?php if ($_SESSION['author_id'] == $row['author_id']):?>
                             <a href="?action=edit-post&id=<?=$row['post_id']?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                             <a href="?action=dell-post&id=<?=$row['post_id']?>"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                         <?php endif?>
@@ -35,7 +35,7 @@
     <?php endforeach?>
 </div>
 <br>
-<?php if(isset($_SESSION["loging"]) and $_SESSION["loging"] == "loging"):?>
+<?php if (isset($_SESSION['loging']) and $_SESSION['loging'] == 'loging'):?>
     <div class="add-post">
         <a class="btn btn-primary" href="?action=add-post" role="button">Add post</a>
     </div>
